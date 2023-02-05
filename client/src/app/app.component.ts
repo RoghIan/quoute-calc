@@ -9,6 +9,8 @@ import { Component, OnInit } from '@angular/core'
 export class AppComponent implements OnInit {
 	title = 'Quote Calculator'
 	users: any
+	value = 50
+	enabled = true
 
 	constructor(private http: HttpClient) {}
 
