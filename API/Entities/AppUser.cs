@@ -1,3 +1,5 @@
+using API.Extensions;
+
 namespace API.Entities
 {
     public class AppUser
@@ -6,8 +8,13 @@ namespace API.Entities
         public string Title { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public DateTime DateOfBirth { get; set; }
+        public DateOnly DateOfBirth { get; set; }
         public string Email { get; set; }
-        public int AmountRequired { get; set; }
+        public int MobileNumber { get; set; }
+        public double LoanAmount { get; set; }
+        public int GetAge()
+        {
+            return DateOfBirth.CalculateAge();
+        }
     }
 }

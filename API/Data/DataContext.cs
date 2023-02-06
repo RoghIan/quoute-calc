@@ -10,5 +10,9 @@ namespace API.Data
         }
 
         public DbSet<AppUser> Users { get; set; }
+        public DbSet<BlacklistedMobileNumber> BlacklistedMobileNumbers { get; set; }
+        public DbSet<BlacklistedEmailDomain> BlacklistedEmailDomains { get; set; }
+        public DbSet<Product> Products { get; set; }
+        public DbSet<UserLoan> UserLoans { get; set; }
     }
 }
