@@ -10,8 +10,10 @@ namespace API.Entities
         public string LastName { get; set; }
         public DateOnly DateOfBirth { get; set; }
         public string Email { get; set; }
-        public int MobileNumber { get; set; }
+        public string MobileNumber { get; set; }
         public double LoanAmount { get; set; }
+        public int NumberOfRepayments { get; set; }
+        public int ProductId { get; set; }
         public int GetAge()
         {
             return DateOfBirth.CalculateAge();

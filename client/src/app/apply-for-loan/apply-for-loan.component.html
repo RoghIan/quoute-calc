@@ -1,0 +1,71 @@
+<div class="container">
+    <div class="title">
+        <h2>Quote Summary</h2>
+    </div>
+    <div class="d-flex">
+        <form action="" method="">
+            <label>
+                <span class="fname">Name:<span class="required"></span></span>
+                <p class="user-value"><strong>{{name}}</strong></p>
+            </label>
+            <label>
+                <span class="lname">Mobile Number: <span class="required"></span></span>
+                <p class="user-value"><strong>{{mobile}}</strong></p>
+            </label>
+            <label>
+                <span>Email:</span>
+                <p class="user-value"><strong>{{email}}</strong></p>
+            </label>
+
+            <label>
+                <span>Date of Birth:<span class="required"></span></span>
+                <p class="user-value"><strong>{{dob | date: 'longDate'}}</strong></p>
+            </label>
+            <button mat-button color="white" class="edit-btn" (click)="onEdit()">Edit</button>
+        </form>
+        <div class="Yorder">
+            <table>
+                <tr>
+                    <th colspan="2">Your Quote</th>
+                </tr>
+                <tr>
+                    <td>Loan Amount</td>
+                    <td>${{loanAmount | number: '1.2-2'}}</td>
+                </tr>
+                <tr>
+                    <td>Repayments Duration (Month)</td>
+                    <td>{{durationInMonths}}</td>
+                </tr>
+                <tr>
+                    <td>Repayments/Month</td>
+                    <td>${{monthlyPayment | number: '1.2-2'}}</td>
+                </tr>
+                <tr>
+                    <td>Interest Per Month</td>
+                    <td>${{interestPerMonth | number: '1.2-2'}}</td>
+                </tr>
+                <tr>
+                    <td>Total Cost</td>
+                    <td>${{totalCost | number: '1.2-2'}}</td>
+                </tr>
+                <tr>
+                    <td>Total Interest</td>
+                    <td>${{totalInterest | number: '1.2-2'}}</td>
+                </tr>
+            </table><br>
+            <div *ngIf="is2MonthsInterestFree">
+                <input type="radio" name="dbt" value="dbt" checked disabled> Note
+            </div>
+            <p *ngIf="is2MonthsInterestFree">
+                Your Loan Repayments is 2 months Interest Free! (already deducted on total cost)
+            </p>
+            <div *ngIf="error" class="error">
+                <input type="radio" name="dbt" value="dbt" checked disabled required> Error
+            </div>
+            <p class="error" *ngIf="error">
+                {{error}}
+            </p>
+            <button type="button" (click)="applyNow()">Place Order</button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,84 @@
+<mat-grid-list cols="3" rowHeight="80px">
+    <mat-grid-tile colspan="3" rowspan="2">
+        <h1>Quote calculator</h1>
+    </mat-grid-tile>
+
+    <mat-grid-tile colspan="3" rowspan="1">
+        <mat-slider class="width-500" thumbLabel [displayWith]="formatLabel" tickInterval="1000" step="1000" min="0"
+            max="100000" [(ngModel)]="loanValue" aria-label="units">
+        </mat-slider>
+    </mat-grid-tile>
+    <mat-grid-tile colspan="3" rowspan="1">
+        <div class="example-label-container">
+            <label id="example-name-label" class="example-name-label">Loan Amount:</label>
+            <label class="example-value-label">{{loanValue}}$</label>
+        </div>
+    </mat-grid-tile>
+
+
+    <mat-grid-tile colspan="3" rowspan="1">
+        <mat-slider class="width-500" thumbLabel [displayWith]="formatLabel" min="0" max="240"
+            [(ngModel)]="repaymentDuration" aria-label="units">
+        </mat-slider>
+    </mat-grid-tile>
+    <mat-grid-tile colspan="3" rowspan="1">
+        <div class="example-label-container">
+            <label id="example-name-label" class="example-name-label">Repayment Duration (Months):</label>
+            <label class="example-value-label">{{repaymentDuration}} Months</label>
+        </div>
+    </mat-grid-tile>
+    <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+        <mat-grid-tile colspan="3" rowspan="1">
+            <mat-form-field>
+                <mat-label>Select Product</mat-label>
+                <mat-select ngModel val name="product" required>
+                    <mat-option [value]="4">Product A</mat-option>
+                    <mat-option [value]="5">Product B</mat-option>
+                    <mat-option [value]="6">Product C</mat-option>
+                </mat-select>
+                <mat-error>Product is required</mat-error>
+            </mat-form-field>
+        </mat-grid-tile>
+
+        <mat-grid-tile colspan="3" rowspan="1">
+            <mat-form-field>
+                <mat-label>Select Title</mat-label>
+                <mat-select ngModel name="title">
+                    <mat-option value="mr">Mr</mat-option>
+                    <mat-option value="mrs">Mrs</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field>
+                <input type="text" matInput placeholder="First Name" ngModel name="firstName" required />
+                <mat-error>First Name is required</mat-error>
+            </mat-form-field>
+            <mat-form-field>
+                <input type="text" matInput placeholder="Last Name" ngModel name="lastName" required />
+                <mat-error>Last Name is required</mat-error>
+            </mat-form-field>
+        </mat-grid-tile>
+
+        <mat-grid-tile colspan="3" rowspan="1">
+            <mat-form-field>
+                <input type="email" matInput placeholder="Email" ngModel name="email" email required />
+                <mat-error>Email is required</mat-error>
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+                <mat-label>Mobile Phone</mat-label>
+                <span matPrefix>+63 &nbsp;</span>
+                <input type="tel" matInput placeholder="555-555-1234" ngModel name="phone">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Date of Birth</mat-label>
+                <input matInput placeholder="Your birth date" [matDatepicker]="picker" ngModel name="dateOfBirth">
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile colspan="3" rowspan="1">
+            <button mat-raised-button color="primary" type="submit" [disabled]="f.invalid">
+                Calculate Quote</button>
+        </mat-grid-tile>
+    </form>
+</mat-grid-list>

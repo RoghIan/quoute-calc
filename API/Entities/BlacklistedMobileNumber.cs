@@ -8,6 +8,6 @@ namespace API.Entities
     public class BlacklistedMobileNumber
     {
         public int Id { get; set; }
-        public int MobileNumber { get; set; }
+        public string MobileNumber { get; set; }
     }
 }

@@ -17,7 +17,10 @@ namespace API.DTOs
         [Required]
         public DateOnly DateOfBirth { get; set; }
         public string Email { get; set; }
+        public string MobileNumber { get; set; }
         [Required]
         public double LoanAmount { get; set; }
+        public int ProductId { get; set; }
+        public int NumberOfRepayments { get; set; }
     }
 }
