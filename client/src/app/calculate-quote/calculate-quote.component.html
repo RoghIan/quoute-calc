@@ -4,21 +4,25 @@
     </mat-grid-tile>
 
     <mat-grid-tile colspan="3" rowspan="1">
-        <mat-slider class="width-500" thumbLabel [displayWith]="formatLabel" tickInterval="1000" step="1000" min="0"
-            max="100000" [(ngModel)]="loanValue" aria-label="units">
+        <span class="text-small">$ 2,500</span>
+        <mat-slider class="width-500" thumbLabel [displayWith]="formatLabel" tickInterval="500" step="500" min="2500"
+            max="15500" [(ngModel)]="loanValue" aria-label="units">
         </mat-slider>
+        <span class="text-small">$15,500</span>
     </mat-grid-tile>
     <mat-grid-tile colspan="3" rowspan="1">
         <div class="example-label-container">
             <label id="example-name-label" class="example-name-label">Loan Amount:</label>
-            <label class="example-value-label">{{loanValue}}$</label>
+            <mat-chip-list>
+                <mat-chip color="primary" selected>{{loanValue | currency:'AUD'}}</mat-chip>
+            </mat-chip-list>
         </div>
     </mat-grid-tile>
 
 
     <mat-grid-tile colspan="3" rowspan="1">
-        <mat-slider class="width-500" thumbLabel [displayWith]="formatLabel" min="0" max="240"
-            [(ngModel)]="repaymentDuration" aria-label="units">
+        <mat-slider class="width-500" thumbLabel [displayWith]="formatLabel" tickInterval="500" step="500" min="0"
+            max="240" [(ngModel)]="repaymentDuration" aria-label="units">
         </mat-slider>
     </mat-grid-tile>
     <mat-grid-tile colspan="3" rowspan="1">

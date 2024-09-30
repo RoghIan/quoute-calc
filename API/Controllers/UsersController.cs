@@ -53,7 +53,9 @@ namespace API.Controllers
                 DateOfBirth = user.DateOfBirth,
                 Email = user.Email,
                 MobileNumber = user.MobileNumber,
-                LoanAmount = user.LoanAmount
+                LoanAmount = user.LoanAmount,
+                NumberOfRepayments = user.NumberOfRepayments,
+                ProductId = user.ProductId,
             };
 
             await _context.Users.AddAsync(newUSer);
